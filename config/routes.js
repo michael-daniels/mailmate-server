@@ -8,7 +8,8 @@ const register = require("../controllers/register.js")
 module.exports = function(app){
 
   app.get('/', home.index);
-  app.get('/contacts', contacts.index);
+  app.get('/contacts', contacts.get);
+  app.post('/contacts', contacts.post);
   app.get('/documents', documents.index);
   app.post('/login', login.post);
   app.post('/register', register.post);
