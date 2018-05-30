@@ -10,7 +10,8 @@ module.exports = function(app){
   app.get('/', home.index);
   app.get('/contacts', contacts.get);
   app.post('/contacts', contacts.post);
-  app.get('/documents', documents.index);
+  app.get('/documents', documents.get);
+  app.post('/documents', documents.post);
   app.post('/login', login.post);
   app.post('/register', register.post);
 
