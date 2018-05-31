@@ -6,11 +6,16 @@ module.exports = {
     res.send('get')
   },
   post: function(req, res) {
-    if (req.body.username === 'michael' && req.body.password === 'haha') {
-      let token = 'SQW3N8isa86prpXNszf4HPdUnZiVqkW0'
-      res.redirect(`http://localhost:3000?user_token=${token}`)
-    } else {
-      res.redirect('back')
-    }
+    let token = 'SQW3N8isa86prpXNszf4HPdUnZiVqkW3'
+
+    knex('users')
+      .insert({
+        username: req.body.username,
+        password: req.body.password,
+        user_token: token
+      })
+      .then(() => {
+        res.redirect(`http://localhost:3000?user_token=${token}`)
+      })
   },
 }
