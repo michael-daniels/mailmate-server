@@ -44,4 +44,15 @@ module.exports = {
 
       })
   },
+  delete: function(req, res) {
+    knex('contacts')
+      .where({
+        id: req.params.id
+      })
+      .del()
+      .then(() => {
+        console.log('DELETED')
+        res.sendStatus('200')
+      })
+  },
 }

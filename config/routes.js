@@ -14,5 +14,7 @@ module.exports = function(app){
   app.post('/documents', documents.post);
   app.post('/login', login.post);
   app.post('/register', register.post);
+  app.post('/delete_contact/:id', contacts.delete);
+  app.post('/delete_document/:id', documents.delete);
 
 }
