@@ -55,4 +55,23 @@ module.exports = {
         res.sendStatus('200')
       })
   },
+  edit: function(req, res) {
+    console.log(req.body)
+    knex('contacts')
+      .where({
+        id: req.params.id
+      })
+      .update({
+        contactName: req.body.contactName,
+        streetAddress: req.body.streetAddress,
+        street2: req.body.street2,
+        city: req.body.city,
+        state: req.body.state,
+        zip: req.body.zip,
+      })
+      .then(() => {
+        console.log('UPDATED')
+        res.sendStatus('200')
+      })
+  },
 }

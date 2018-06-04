@@ -50,4 +50,19 @@ module.exports = {
         res.sendStatus('200')
       })
   },
+  edit: function(req, res) {
+    console.log(req.h)
+    knex('documents')
+      .where({
+        id: req.params.id
+      })
+      .update({
+        title: req.body.title,
+        content: req.body.content,
+      })
+      .then(() => {
+        console.log('UPDATED')
+        res.sendStatus('200')
+      })
+  },
 }
