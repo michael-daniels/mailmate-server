@@ -4,6 +4,7 @@ const contacts = require("../controllers/contacts.js")
 const documents = require("../controllers/documents.js")
 const login = require("../controllers/login.js")
 const register = require("../controllers/register.js")
+const lobcontroller = require("../controllers/lobcontroller.js")
 
 module.exports = function(app){
 
@@ -18,5 +19,6 @@ module.exports = function(app){
   app.post('/delete_document/:id', documents.delete);
   app.post('/edit_contact/:id', contacts.edit);
   app.post('/edit_document/:id', documents.edit);
+  app.post('/send_mail', lobcontroller.get);
 
 }
