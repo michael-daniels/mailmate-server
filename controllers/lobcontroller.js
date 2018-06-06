@@ -4,10 +4,14 @@ const Lob = require('lob')('test_8a36131f416b3c3a5c9a38e5ab09afd56e7');
 module.exports = {
   // CHANGE ME TO AN ACTUAL FUNCTION
   get: function(req, res) {
-    // console.log('DOCUMENT', req.body[0])
-    // console.log('RECIPIENT', req.body[1][0])
+    console.log('DOCUMENT', req.body[0])
+    console.log('RECIPIENT', req.body[1][0])
+
     let theDocument = req.body[0];
-    let recipient = req.body[1][0]
+    let recipient = req.body[1][0];
+
+    let htmlContent = theDocument.content.replace(/\n\n/g, '<br /><div style="margin:25px 0"></div>');
+
     Lob.letters.create({
   description: 'Demo Letter',
   to: {
@@ -28,7 +32,7 @@ module.exports = {
     address_zip: '85043',
     address_country: 'US',
   },
-  file: `<html style="padding-top: 3in; margin: .5in;">${theDocument.content}</html>`,
+  file: `<html style="padding-top: 3in; margin: .5in; font-size:12px">${htmlContent}</html>`,
   color: true
   }, function (err, res) {
     console.log(err, res);
