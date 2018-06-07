@@ -5,10 +5,10 @@ module.exports = {
   // CHANGE ME TO AN ACTUAL FUNCTION
   get: function(req, res) {
     console.log('DOCUMENT', req.body[0])
-    console.log('RECIPIENT', req.body[1][0])
+    console.log('RECIPIENT', req.body[1])
 
     let theDocument = req.body[0];
-    let recipient = req.body[1][0];
+    let recipient = req.body[1];
 
     let htmlContent = theDocument.content.replace(/\n\n/g, '<br /><div style="margin:25px 0"></div>');
 
@@ -33,6 +33,9 @@ module.exports = {
         address_country: 'US',
       },
       file: `<html style="padding-top: 3in; margin: .5in; font-size:12px">${htmlContent}</html>`,
+      merge_variables: {
+        name: recipient.contactName,
+      },
       color: true
       }, function (err, res) {
         console.log(err, res);
