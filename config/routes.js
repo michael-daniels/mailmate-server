@@ -2,6 +2,7 @@
 const home = require("../controllers/home.js")
 const contacts = require("../controllers/contacts.js")
 const documents = require("../controllers/documents.js")
+const history = require("../controllers/history.js")
 const login = require("../controllers/login.js")
 const register = require("../controllers/register.js")
 const lobcontroller = require("../controllers/lobcontroller.js")
@@ -13,6 +14,7 @@ module.exports = function(app){
   app.post('/contacts', contacts.post);
   app.get('/documents', documents.get);
   app.post('/documents', documents.post);
+  app.get('/history', history.get);
   app.post('/login', login.post);
   app.post('/register', register.post);
   app.post('/delete_contact/:id', contacts.delete);
