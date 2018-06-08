@@ -38,10 +38,8 @@ module.exports = {
             zip: req.body.zip,
             user_id: userID
           })
-          .returning('id')
-          .then((id) => {
-            console.log("THE ID", id)
-            res.json({id:id})
+          .then(() => {
+            res.sendStatus('200')
           })
 
       })
